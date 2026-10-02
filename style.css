@@ -1,0 +1,330 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background:
+        radial-gradient(circle at center, #3a102d 0%, #190b18 45%, #080508 100%);
+
+    font-family: Arial, sans-serif;
+    color: white;
+    overflow: hidden;
+}
+
+/* Ana alan */
+
+.container {
+    text-align: center;
+    width: 90%;
+    max-width: 700px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Kalp */
+
+.heart {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 35px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 3px solid #ff2b9a;
+    transform: rotate(45deg);
+
+    box-shadow:
+        0 0 10px #ff2b9a,
+        0 0 30px #ff2b9a,
+        0 0 60px rgba(255, 43, 154, 0.6);
+
+    animation: pulse 2s infinite;
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+
+    width: 150px;
+    height: 150px;
+
+    border: 3px solid #ff2b9a;
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 10px #ff2b9a,
+        0 0 30px #ff2b9a;
+}
+
+.heart::before {
+    top: -78px;
+    left: -3px;
+}
+
+.heart::after {
+    left: -78px;
+    top: -3px;
+}
+
+.heart span {
+    transform: rotate(-45deg);
+    color: #ff2b9a;
+    font-size: 55px;
+
+    text-shadow:
+        0 0 10px #ff2b9a,
+        0 0 25px #ff2b9a;
+}
+
+/* Başlık */
+
+h1 {
+    font-size: 42px;
+    margin-bottom: 15px;
+
+    text-shadow:
+        0 0 10px #ff2b9a,
+        0 0 25px #ff2b9a;
+}
+
+/* Alt yazı */
+
+.subtitle {
+    font-size: 19px;
+    color: #ffd4e9;
+    margin-bottom: 30px;
+}
+
+/* Mesaj kutusu */
+
+.message {
+    padding: 25px;
+
+    border: 1px solid rgba(255, 43, 154, 0.5);
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.04);
+
+    box-shadow:
+        0 0 20px rgba(255, 43, 154, 0.15);
+
+    backdrop-filter: blur(10px);
+}
+
+.message p {
+    color: #ffe5f1;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+/* Tarih */
+
+.date {
+    margin-top: 25px;
+    color: #ff7abd;
+    font-size: 15px;
+
+    text-shadow: 0 0 10px #ff2b9a;
+}
+
+/* Kalp animasyonu */
+
+@keyframes pulse {
+    0%, 100% {
+        transform: rotate(45deg) scale(1);
+    }
+
+    50% {
+        transform: rotate(45deg) scale(1.08);
+    }
+}
+
+/* Mobil */
+
+@media (max-width: 600px) {
+
+    .heart {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 30px;
+    }
+
+    .heart::before,
+    .heart::after {
+        width: 100px;
+        height: 100px;
+    }
+
+    .heart::before {
+        top: -53px;
+    }
+
+    .heart::after {
+        left: -53px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    .subtitle {
+        font-size: 16px;
+    }
+
+    .message {
+        padding: 20px;
+    }
+
+    .message p {
+        font-size: 15px;
+    }
+}
+
+/* FOTOĞRAF */
+
+.photo-container {
+    width: 220px;
+    height: 220px;
+
+    margin: 30px auto;
+
+    border-radius: 20px;
+    overflow: hidden;
+
+    border: 2px solid #ff2b9a;
+
+    box-shadow:
+        0 0 15px #ff2b9a,
+        0 0 35px rgba(255, 43, 154, 0.4);
+
+    transition: 0.4s;
+}
+
+.photo-container:hover {
+    transform: scale(1.05);
+
+    box-shadow:
+        0 0 20px #ff2b9a,
+        0 0 50px rgba(255, 43, 154, 0.7);
+}
+
+.photo-container img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* GİZLİ MESAJ */
+
+.secret {
+    max-width: 600px;
+
+    margin: 25px auto 0;
+
+    padding: 25px;
+
+    border-radius: 20px;
+
+    background: rgba(255, 43, 154, 0.08);
+
+    border: 1px solid #ff2b9a;
+
+    box-shadow:
+        0 0 20px rgba(255, 43, 154, 0.25);
+
+    opacity: 0;
+    transform: translateY(20px);
+
+    pointer-events: none;
+
+    transition: 0.6s;
+}
+
+.secret.active {
+    opacity: 1;
+    transform: translateY(0);
+
+    pointer-events: auto;
+}
+
+.secret h2 {
+    color: #ff6db8;
+
+    margin-bottom: 15px;
+
+    text-shadow:
+        0 0 10px #ff2b9a;
+}
+
+.secret p {
+    color: #ffe5f1;
+
+    line-height: 1.7;
+}
+
+
+/* KALP TIKLAMA */
+
+.heart {
+    cursor: pointer;
+}
+
+
+/* ALT İPUCU */
+
+.hint {
+    margin-top: 15px;
+
+    color: #ff7abd;
+
+    font-size: 13px;
+
+    opacity: 0.8;
+
+    animation: hintPulse 2s infinite;
+}
+
+@keyframes hintPulse {
+
+    0%, 100% {
+        opacity: 0.4;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+}
+
+
+/* MOBİL */
+
+@media (max-width: 600px) {
+
+    .photo-container {
+        width: 180px;
+        height: 180px;
+    }
+
+    .secret {
+        padding: 20px;
+    }
+
+    .secret h2 {
+        font-size: 20px;
+    }
+
+}
